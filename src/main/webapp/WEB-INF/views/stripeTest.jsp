@@ -3,7 +3,7 @@
 
 <!doctype html>
 
-<html xmlns:ng="http://angularjs.org" class="ng-app:Cenfoteca" id="ng-app" ng-app="Cenfoteca">
+<html xmlns:ng="http://angularjs.org" class="ng-app:Stripe" id="ng-app" ng-app="Stripe">
 	<head>
 	    <meta charset="utf-8">
 		<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
@@ -16,14 +16,26 @@
 			<script src="resources/js/json3.min.js"></script>
 		<![endif]-->
 		
-		<c:import url="/WEB-INF/views/loginJavascript.jsp"></c:import>
+		<c:import url="/WEB-INF/views/JSstripeTest.jsp"></c:import>
+		
+		
+		
+
+	<script type="text/javascript">
+	  // This identifies your website in the createToken call below
+	  Stripe.setPublishableKey('pk_test_AtFfQvJrqNu2WtBJdTPUSz2L');
+	  // ...
+	</script>
+
+		
+		
 	</head>
 	
-	<body>
+	<body ng-controller="StripeController">
 		<h3>Stripe Test View</h3>
 				
 		
-		<form action="" method="POST" id="payment-form">
+		<form action="" method="POST" id="payment-form" ng-submit="submit()" name="stripeForm">
 		  <span class="payment-errors"></span>
 		
 		  <div class="form-row">

@@ -11,8 +11,7 @@
 <script src="resources/js/lib/placeholders.js"></script>
 
 <script src="resources/js/lib/angular/angular.js" ng:autobind></script>
-<script src="resources/js/appLogin.js"></script>
-<script src="resources/js/filters.js"></script>
+
 
 <script src="resources/js/controllers/stripeController.js"></script>
 
