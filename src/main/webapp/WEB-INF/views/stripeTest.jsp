@@ -22,35 +22,36 @@
 	<body ng-controller='stripeCont'>
 		<h3>Stripe Test View</h3>
 				
-		
-		<form  id="payment-form"  ng-model="form">
+		 <!-- method="POST"-->
+		<form action="" id="payment-form">
 		  <span class="payment-errors"></span>
 		
 		  <div class="form-row">
 		    <label>
 		      <span>Card Number</span>
-		      <input type="text" size="20" data-stripe="number" ng-model='card'/>
+		      <input type="text" size="20" data-stripe="number"/>
 		    </label>
 		  </div>
 		
 		  <div class="form-row">
 		    <label>
 		      <span>CVC</span>
-		      <input type="text" size="4" data-stripe="cvc" ng-model='cvc'/>
+		      <input type="text" size="4" data-stripe="cvc"/>
 		    </label>
 		  </div>
 		
-		  <div class="form-row" ng-model='exp'>
+		  <div class="form-row">
 		    <label>
 		      <span>Expiration (MM/YYYY)</span>
-		      <input type="text" size="2" data-stripe="exp-month" ng-model='exp_month'/>
+		      <input type="text" size="2" data-stripe="exp-month"/>
 		    </label>
 		    <span> / </span>
-		    <input type="text" size="4" data-stripe="exp-year" ng-model='exp_year'/>
+		    <input type="text" size="4" data-stripe="exp-year"/>
 		  </div>
 		
 		  <button ng-click="submit()" ng-disabled="button">Submit Payment</button>
 		</form>
+		  
 
 			
 	</body>

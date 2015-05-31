@@ -4,15 +4,14 @@
 var stripeApp = angular.module('stripeApp', []);
 
 stripeApp.controller('stripeCont', function($scope){
-	$scope.resul=true;
+
 	$scope.button=false;
 	$scope.token = "";
+	
 	$scope.submit = function (){
 		$scope.$form = angular.element(document.querySelector('#payment-form'));
 		
 		$scope.button = true;
-		//$scope.pay={card: $scope.card, cvc:$scope.cvc, exp:$scope.exp }
-		$scope.resul=false;
 		
 		Stripe.card.createToken($scope.$form, $scope.stripeResponseHandle);
 		
@@ -22,14 +21,22 @@ stripeApp.controller('stripeCont', function($scope){
 	$scope.stripeResponseHandle = function (status,response){
 		var form = angular.element(document.querySelector('#payment-form'));
 		if(response.error){
-			 // Show the errors on the form
 	        $form.find('.payment-errors').text(response.error.message);
 	        $scope.button = false;
 	      } else {
+	    	  
+	    	  var text = "Token: " +response.id+
+	    	  		"card: "+response.card+
+	    	  		"created: "+response.created+
+	    	  		"currency: "+response.currency+
+	    	  		"livemode: "+response.livemode+
+	    	  		"object: "+response.object+
+	    	  		"used: "+response.used;
 	        // response contains id and card, which contains additional card details
-	    	alert(response.id);
+	    	alert(text);
 	        // Insert the token into the form so it gets submitted to the server
 	        // and submit
+	    	$scope.$form.append($('<input type="hidden" name="stripeToken" />').val(response.id));
 	    	$scope.$form.get(0).submit();
 
 	     }
