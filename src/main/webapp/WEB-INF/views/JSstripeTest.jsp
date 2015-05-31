@@ -18,5 +18,10 @@
 <script src="resources/bootstrap/js/bootstrap.min.js"></script>
 
 <script type="text/javascript" src="https://js.stripe.com/v2/"></script>
+<script type="text/javascript">
+  // This identifies your website in the createToken call below
+  Stripe.setPublishableKey('pk_test_uLHafCqM7q7GeVZxDkabaA2y');
+  // ...
+</script>
 
 
