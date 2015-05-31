@@ -51,9 +51,7 @@
 		
 		  <button ng-click="submit()" ng-disabled="button">Submit Payment</button>
 		</form>
-		<div ng-hide='resul'>
-			{{token}}
-		</div>
+
 			
 	</body>
 	
