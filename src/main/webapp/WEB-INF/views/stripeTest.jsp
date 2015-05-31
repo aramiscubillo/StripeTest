@@ -3,7 +3,7 @@
 
 <!doctype html>
 
-<html xmlns:ng="http://angularjs.org" class="ng-app:Cenfoteca" id="ng-app" ng-app="Cenfoteca">
+<html xmlns:ng="http://angularjs.org" class="ng-app:stripeApp" id="ng-app" ng-app="Cenfoteca">
 	<head>
 	    <meta charset="utf-8">
 		<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
@@ -16,42 +16,44 @@
 			<script src="resources/js/json3.min.js"></script>
 		<![endif]-->
 		
-		<c:import url="/WEB-INF/views/loginJavascript.jsp"></c:import>
+		<c:import url="/WEB-INF/views/JSstripeTest.jsp"></c:import>
 	</head>
 	
-	<body>
+	<body ng-controller='stripeCont'>
 		<h3>Stripe Test View</h3>
 				
 		
-		<form action="" method="POST" id="payment-form">
+		<form  id="payment-form"  ng-model="form">
 		  <span class="payment-errors"></span>
 		
 		  <div class="form-row">
 		    <label>
 		      <span>Card Number</span>
-		      <input type="text" size="20" data-stripe="number"/>
+		      <input type="text" size="20" data-stripe="number" ng-model='card'/>
 		    </label>
 		  </div>
 		
 		  <div class="form-row">
 		    <label>
 		      <span>CVC</span>
-		      <input type="text" size="4" data-stripe="cvc"/>
+		      <input type="text" size="4" data-stripe="cvc" ng-model='cvc'/>
 		    </label>
 		  </div>
 		
-		  <div class="form-row">
+		  <div class="form-row" ng-model='exp'>
 		    <label>
 		      <span>Expiration (MM/YYYY)</span>
-		      <input type="text" size="2" data-stripe="exp-month"/>
+		      <input type="text" size="2" data-stripe="exp-month" ng-model='exp_month'/>
 		    </label>
 		    <span> / </span>
-		    <input type="text" size="4" data-stripe="exp-year"/>
+		    <input type="text" size="4" data-stripe="exp-year" ng-model='exp_year'/>
 		  </div>
 		
-		  <button type="submit">Submit Payment</button>
+		  <button ng-click="submit()" ng-disabled="button">Submit Payment</button>
 		</form>
-
+		<div ng-hide='resul'>
+			{{token}}
+		</div>
 			
 	</body>
 	
