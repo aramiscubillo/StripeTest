@@ -1,21 +1,4 @@
-<<<<<<< HEAD
-var App = angular.module('Stripe', []);
 
-
-App.controller('StripeController', function ($scope, $http, $rootScope) {
-	
-	$scope.submit = function() {
-		alert('testing');
-		var form = $scope.stripeForm;
-		
-		 Stripe.card.createToken(form, stripeResponseHandler);
-
-		    // Prevent the form from submitting with the default action
-		    return false;
-	};
-
-});
-=======
 /**
  * 
  */
@@ -38,7 +21,7 @@ stripeApp.controller('stripeCont', function($scope){
 	};
 	
 	$scope.stripeResponseHandle = function (status,response){
-		var form = angular.element(document.querySelector('#payment-form'));
+		 form = angular.element(document.querySelector('#payment-form'));
 		if(response.error){
 			 // Show the errors on the form
 	        $form.find('.payment-errors').text(response.error.message);
@@ -48,10 +31,18 @@ stripeApp.controller('stripeCont', function($scope){
 	    	alert(response.id);
 	        // Insert the token into the form so it gets submitted to the server
 	        // and submit
+	    	
+	    	form.append(' <input type="hidden" name="stripeToken" value="'+response.id+'" />');
+	    	
+	    	$scope.paymentForm.stripeToken = response.id
+	    	
+	    	alert(response.id);
+	    	
+	    	form.action='/stripeTest';
+	    	
 	    	$scope.$form.get(0).submit();
 
 	     }
 	};
 	
 });
->>>>>>> 55434ea3ac39520cbddf406ef24c3c81bdd9836e

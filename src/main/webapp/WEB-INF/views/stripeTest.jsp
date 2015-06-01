@@ -3,11 +3,8 @@
 
 <!doctype html>
 
-<<<<<<< HEAD
-<html xmlns:ng="http://angularjs.org" class="ng-app:Stripe" id="ng-app" ng-app="Stripe">
-=======
+
 <html xmlns:ng="http://angularjs.org" class="ng-app:stripeApp" id="ng-app" ng-app="Cenfoteca">
->>>>>>> 55434ea3ac39520cbddf406ef24c3c81bdd9836e
 	<head>
 	    <meta charset="utf-8">
 		<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
@@ -21,10 +18,6 @@
 		<![endif]-->
 		
 		<c:import url="/WEB-INF/views/JSstripeTest.jsp"></c:import>
-<<<<<<< HEAD
-		
-		
-		
 
 	<script type="text/javascript">
 	  // This identifies your website in the createToken call below
@@ -36,20 +29,12 @@
 		
 	</head>
 	
-	<body ng-controller="StripeController">
-		<h3>Stripe Test View</h3>
-				
-		
-		<form action="" method="POST" id="payment-form" ng-submit="submit()" name="stripeForm">
-=======
-	</head>
-	
+
 	<body ng-controller='stripeCont'>
 		<h3>Stripe Test View</h3>
 				
 		
-		<form  id="payment-form"  ng-model="form">
->>>>>>> 55434ea3ac39520cbddf406ef24c3c81bdd9836e
+		<form  id="payment-form"  ng-model="form" name="paymentForm" method="POST">
 		  <span class="payment-errors"></span>
 		
 		  <div class="form-row">
